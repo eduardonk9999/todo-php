@@ -1,48 +1,37 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TODO PHP</title>
-</head>
-<body>
-  <h1>Gerenciador de tarefas</h1>
+<?php 
+session_start();
 
+
+$lista_tarefas	=	[];
+
+if	(array_key_exists('lista_tarefas',	$_SESSION))	{
+  $lista_tarefas	=	$_SESSION['lista_tarefas'];
+}
+
+if(array_key_exists('nome', $_GET) && $_GET['nome'] != ''){
   
+ 
+  $tarefa = [
+    'nome' => $_GET['nome'],
+    'descricao' => '',
+    'prazo' => '',
+    'prioridade' => $_GET['prioridade'],
+    'concluida' => '',
+  ];
 
-  <form action="">
-    <fieldset>
-      <legend>Nova Tarefa</legend>
-      <label for="">
-        Tarefa:
-        <input type="text" name="nome" />
-      </label>
+  if(array_key_exists('descricao', $_GET)) {
+    $tarefa['descricao'] = $_GET['descricao'];
+  }
+  if(array_key_exists('prazo', $_GET)) {
+    $tarefa['prazo'] = $_GET['prazo'];
+  }
+  if	(array_key_exists('concluida',	$_GET))	{
+    $tarefa['concluida']	=	$_GET['concluida'];
+  }
 
-      <input type="submit" value="Cadastrar">
-    </fieldset>
-  </form>
+  $_SESSION['lista_tarefas'][]	=	$tarefa;
+}
 
 
-  <?php 
-    $lista_tarefas = array();
+include "template.php";
 
-    if(isset($_GET['nome'])) {
-      $lista_tarefas[] = $_GET['nome'];
-    }
-  ?>
-
-  <table>
-    <tr>
-      <th>Tarefas</th>
-    </tr>
-
-    <?php foreach ($lista_tarefas as $tarefa) : ?>
-      <tr>
-        <td><?php echo $tarefa; ?></td>
-      </tr>
-
-      <?php endforeach; ?>
-  </table>
-</body>
-</html>
