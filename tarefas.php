@@ -35,3 +35,14 @@ if(array_key_exists('nome', $_GET) && $_GET['nome'] != ''){
 
 include "template.php";
 
+
+foreach($json->Planilha1 as $jsons){
+    echo "|$jsons->ean| == |$ean|<br/>";
+
+    if(trim($jsons->ean) == trim($ean))
+    {
+      $id_sku = $jsons->sku;
+
+      echo "Murillo";
+    }
+  }
