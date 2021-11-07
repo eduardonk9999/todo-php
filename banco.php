@@ -10,6 +10,7 @@ if(mysqli_connect_errno($conexao)) {
   echo 'Problemas para conectar banco. ERRO: ';
   echo mysqli_connect_error();
   die();
+  //
 }
 
 ?>
