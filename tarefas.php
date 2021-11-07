@@ -9,8 +9,7 @@ if	(array_key_exists('lista_tarefas',	$_SESSION))	{
 }
 
 if(array_key_exists('nome', $_GET) && $_GET['nome'] != ''){
-  
- 
+
   $tarefa = [
     'nome' => $_GET['nome'],
     'descricao' => '',
@@ -35,14 +34,3 @@ if(array_key_exists('nome', $_GET) && $_GET['nome'] != ''){
 
 include "template.php";
 
-
-foreach($json->Planilha1 as $jsons){
-    echo "|$jsons->ean| == |$ean|<br/>";
-
-    if(trim($jsons->ean) == trim($ean))
-    {
-      $id_sku = $jsons->sku;
-
-      echo "Murillo";
-    }
-  }
