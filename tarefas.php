@@ -1,12 +1,9 @@
 <?php 
 session_start();
+require "banco.php";
 
 
-$lista_tarefas	=	[];
-
-if	(array_key_exists('lista_tarefas',	$_SESSION))	{
-  $lista_tarefas	=	$_SESSION['lista_tarefas'];
-}
+$lista_tarefas = buscar_tarefas($conexao);
 
 if(array_key_exists('nome', $_GET) && $_GET['nome'] != ''){
 
