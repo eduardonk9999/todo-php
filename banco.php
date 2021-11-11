@@ -24,8 +24,10 @@ function buscar_tarefas($conexao) {
   }
 
   return $tarefas;
+}
 
-
+function gravar_tarefa($conexao, $tarefa){
+  // Linha book 139
 }
 
 ?>

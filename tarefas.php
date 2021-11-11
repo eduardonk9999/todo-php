@@ -25,7 +25,8 @@ if(array_key_exists('nome', $_GET) && $_GET['nome'] != ''){
     $tarefa['concluida']	=	$_GET['concluida'];
   }
 
-  $_SESSION['lista_tarefas'][]	=	$tarefa;
+  //$_SESSION['lista_tarefas'][]	=	$tarefa;
+  gravar_tarefa($conexao, $tarefa);
 }
 
 
