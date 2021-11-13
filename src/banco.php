@@ -1,5 +1,5 @@
 <?php
-$bdServidor  = '127.0.0.1';
+$bdServidor  = 'db';
 $bdUsuario   = 'sistematarefa';
 $bdSenha     = 'sistema';
 $bdBanco     = 'tarefas';
@@ -29,5 +29,7 @@ function buscar_tarefas($conexao) {
 function gravar_tarefa($conexao, $tarefa){
   // Linha book 139
 }
+
+//docker-compose exec db mysql -u root -p
 
 ?>

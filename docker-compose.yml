@@ -1,0 +1,26 @@
+version: '3.1'
+
+services:
+  php:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 80:80
+    volumes:  
+      - ./src:/var/www/html/
+  db:
+    image: mysql:latest
+    volumes: 
+      - dbdata_tarefas:/var/lib/mysql
+    ports:
+    - 3306:3306
+    environment:
+      - "MYSQL_ROOT_PASSWORD=rootsistema"
+      - "MYSQL_DATABASE=tarefas"
+      - "MYSQL_USER=sistematarefa"
+      - "MYSQL_PASSWORD=sistema"
+
+volumes:
+  dbdata_tarefas:
+    driver: local
