@@ -27,7 +27,16 @@ function buscar_tarefas($conexao) {
 }
 
 function gravar_tarefa($conexao, $tarefa){
-  // Linha book 139
+	$sqlGravar = "
+		INSERT INTO tarefas
+		(nome, descricao, prioridade)
+		VALUES
+		(
+			'{$tarefa['nome']}',
+			'{$tarefa['descricao']}',
+			{$tarefa['prioridade']}	
+		)";
+	mysqli_query($conexao, $sqlGravar);
 }
 
 //docker-compose exec db mysql -u root -p
