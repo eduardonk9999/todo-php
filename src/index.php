@@ -1,6 +1,7 @@
 <?php 
 session_start();
 require "banco.php";
+require "ajudantes.php";
 
 
 $lista_tarefas = buscar_tarefas($conexao);
